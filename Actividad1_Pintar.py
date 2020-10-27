@@ -41,11 +41,32 @@ def circle(start, end):
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
-    pass  # TODO
-
+    up()
+    goto(start.x, start.y)         #Convierte a start en punto de partida
+    down()
+    
+    begin_fill()                   #Comienza el llenado de la figura
+    for count in range(4):         #Ejecuta el ciclo 4 veces al ser una figura de 4 lados
+        if (count % 2) == 0 :      
+            forward (end.x - start.x)  #Si el contador es par, se trata una linea horizontal
+        else:
+            forward (end.y - start.y)  #Si el contador es impar, se trata de una linea vertical
+            
+        left(90) #Para cualquiera de los casos, gira 90° (360°/4 lados) a la izquierda
+            
+    end_fill()                    #Termina de llenar
+    
 def triangle(start, end):
     "Draw triangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)         #Convierte a start en punto de partida
+    down()
+    
+    begin_fill()                   #Comienza el llenado de la figura
+    for count in range(3):         #Ejecuta el ciclo 3 veces al ser una figura de 3 lados
+        forward(end.x - start.x)   #Cada lado medirá la diferencia entre el X de end y de start
+        left(120)                  #Gira 120° (360°/3 Lados) a la izquierda
+    end_fill                       #Termina de llenar
 
 def tap(x, y):
     "Store starting point or draw shape."
