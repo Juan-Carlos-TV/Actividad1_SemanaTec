@@ -25,7 +25,19 @@ def square(start, end):
 
 def circle(start, end):
     "Draw circle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)             #Toma como punto de partida a Start
+    down()
+    
+    arc = 0.01745*(end.x - start.x)    #Calcula el arco para un ángulo de 1 grado, recordando que Arc = rad * r
+                                       #Donde r = end.x - start.x
+    begin_fill()                       #Empieza el llenado
+    
+    for count in range(360):           #Se ejecutará el ciclo 360 veces por ser 360 segmentos de 1 grado
+        forward(arc)                   #Se desplaza la longitud de un arco
+        left(1)                        #Gira un grado a la izquierda
+        
+    end_fill()                         #Termina el llenado
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
